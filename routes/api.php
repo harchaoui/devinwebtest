@@ -25,3 +25,6 @@ Route::apiResource('delivery-times','DeliveryTimesController');
 
 // Handles Attach city delivery times
 Route::post('/city/{city}/delivery-times','AttachCityDeliveryTimeController@store');
+
+// Handles excluding some city delivery times
+Route::post('/spans/{city_id}/exclude','ExcludeSpansConroller@excludeDateSpans');
