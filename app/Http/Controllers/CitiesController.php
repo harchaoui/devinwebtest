@@ -9,7 +9,13 @@ class CitiesController extends Controller
     //Create store function to add a city(id,name.slug)
     // and handle the api => POST /api/city/
     public function store(Request $request) {
-        
+        $res = City::create($request->all());
+        if($res){
+            return response()->json(
+                ['message'=>'City has been added!'],
+                200
+            );
+        }
 
     }
 }
