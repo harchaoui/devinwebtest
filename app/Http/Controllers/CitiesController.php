@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\City;
 
 class CitiesController extends Controller
 {
@@ -16,6 +17,7 @@ class CitiesController extends Controller
                 200
             );
         }
+        return response()->json(['message' => 'Something went wrong'], 500);
 
     }
 }
