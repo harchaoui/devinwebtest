@@ -13,7 +13,7 @@ class CreateCityDeliveryTimesTable extends Migration
      */
     public function up()
     {
-        Schema::create('city_delivery_times', function (Blueprint $table) {
+        Schema::create('city_delivery_time', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('city_id');
             $table->integer('delivery_time_id');

@@ -29,8 +29,5 @@ class DeliveryTimesController extends Controller
             ['message' => 'Something went wrong'],
              500
             );
-        
-
-
     }
 }
