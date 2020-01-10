@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         App\DeliveryTime::create(['span'=>'14->18']);
         App\DeliveryTime::create(['span'=>'18-20']);
 
-        App\CityDeliveryTime::create([''=>'']);
+        // App\CityDeliveryTime::create([''=>'']);
 
     }
 }

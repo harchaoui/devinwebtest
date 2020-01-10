@@ -56,13 +56,51 @@ class ExcludeSpansConroller extends Controller
 
         // dump($city);
         // dd($spans->toArray());
+
+        
+    }
+
+    public function excludeDate(Request $request){
+        $this->validate($request,[
+            "date" => "required|date"
+            ]);
+
+        // get city 
+        $city_id = $request->city_id;
+
+        //City from db
+        $city = City::findOrFail($city_id);
+
+        // spans diyal had city
+        $spans = $city->deliveryTimes;
+        
+        // dump($spans->toArray());
         
 
 
-    
+        $rows = [];
+        foreach ($spans as $span) {
+            $rows[] = [
+                'delivery_time_id' => $span->id,
+                'city_id'   =>  $city_id,
+                'date'      => $request->date,
+                'name'      => Carbon::parse($request->date)->format('l'),
+            ];
+
+        }
+
+        $result = ExculdedDate::insert($rows);
+        if($result){
+            return response()->json(
+                ['message'=>"Day {$request->date} has been Excluded!"],
+                200
+            );
+        }
         
-        
-        return ;
-        
+        return response()->json(
+            ['message' => 'Something went wrong'],
+             500
+            ); 
+
     }
 }

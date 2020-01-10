@@ -28,3 +28,7 @@ Route::post('/city/{city}/delivery-times','AttachCityDeliveryTimeController@stor
 
 // Handles excluding some city delivery times
 Route::post('/spans/{city_id}/exclude','ExcludeSpansConroller@excludeDateSpans');
+
+// Handles excluding city delivery by excluding all of the daily
+// delivery times
+Route::post('/delivery-date/{city_id}','ExcludeSpansConroller@excludeDate');
