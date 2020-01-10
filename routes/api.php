@@ -24,5 +24,4 @@ Route::apiResource('city', 'CitiesController');
 Route::apiResource('delivery-times','DeliveryTimesController');
 
 // Handles Attach city delivery times
-
 Route::post('/city/{city}/delivery-times','AttachCityDeliveryTimeController@store');
