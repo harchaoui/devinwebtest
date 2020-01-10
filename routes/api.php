@@ -17,4 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Handles City(name,slug) POST Req
 Route::apiResource('city', 'CitiesController');
+
+// Handles delivery times spans(id, span) POST Req.
+Route::apiResource('delivery-times','DeliveryTimesController');
