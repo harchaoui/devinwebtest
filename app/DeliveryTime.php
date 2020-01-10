@@ -8,4 +8,5 @@ class DeliveryTime extends Model
 {
     //Allow Laravel to insert data!
     public $fillable = ['span'];
+    public $hidden = ['pivot'];
 }

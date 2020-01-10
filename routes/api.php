@@ -32,3 +32,6 @@ Route::post('/spans/{city_id}/exclude','ExcludeSpansConroller@excludeDateSpans')
 // Handles excluding city delivery by excluding all of the daily
 // delivery times
 Route::post('/delivery-date/{city_id}','ExcludeSpansConroller@excludeDate');
+
+// list delivery dates 
+Route::post('/city/{city_id}/delivery-dates-times/{number_of_days}','ValidDateConroller@index');

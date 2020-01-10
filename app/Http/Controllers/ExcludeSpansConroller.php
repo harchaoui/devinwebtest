@@ -21,8 +21,6 @@ class ExcludeSpansConroller extends Controller
         // dd($request->all());
 
         $city_id = $request->city_id;
-        
-        
         $city = City::findOrFail($city_id);
 
         //check spans
@@ -103,4 +101,5 @@ class ExcludeSpansConroller extends Controller
             ); 
 
     }
+
 }
