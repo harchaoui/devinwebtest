@@ -11,22 +11,22 @@ based on the problem of excluded delivery time from cerain dates, we can proceed
 ![UML of example of Delivery date/times Problem](system_design_v0.2.png)
 
 #### Endpoints 
-Handles City(name,slug) POST Req
+Handles City(name,slug) POST Req <br>
 ```Route::apiResource('city', 'CitiesController');```
 
-Handles delivery times spans(id, span) POST Req.
+Handles delivery times spans(id, span) POST Req.<br>
 ```Route::apiResource('delivery-times','DeliveryTimesController');```
 
-Handles Attach city delivery times
+Handles Attach city delivery times <br>
 ```Route::post('/city/{city}/delivery-times','AttachCityDeliveryTimeController@store');```
 
-Handles excluding some city delivery times
+Handles excluding some city delivery times<br>
 ``` Route::post('/spans/{city_id}/exclude','ExcludeSpansConroller@excludeDateSpans');```
 
 Handles excluding city delivery by excluding all of the daily
-delivery times
+delivery times<br>
 ``` Route::post('/delivery-date/{city_id}','ExcludeSpansConroller@excludeDate'); ```
 
 
-list delivery dates 
+list delivery dates<br>
 ``` Route::post('/city/{city_id}/delivery-dates-times/{number_of_days}','ValidDateConroller@index');```
