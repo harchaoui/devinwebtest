@@ -8,6 +8,8 @@ use App\City;
 use App\DeliveryTime;
 use Carbon\Carbon;
 
+// and this is the token for this video !
+// &*&*&*&*888818811/ 
 class ValidDateConroller extends Controller
 {
     // {
@@ -42,12 +44,15 @@ class ValidDateConroller extends Controller
         // get the number of valid spans 
         $numberOfSpans =  $validSpans->count();
 
-        
+        //valid days arary to hold NOT excluded dates 
         $validdays = [];
         for ($i = 0; $i < $numberOfDays;$i++){
-            
+
+            //get spans from excluded dates "a date contains many spans" 
             $spansFromExDate= ExculdedDate::where('date',$day->format('d-m-Y'))->where('city_id',$city_id)->count();
             
+            //check if the number of spans from excluded dates against number of spans
+            // from delivery times "valid spans "
             if ($spansFromExDate != $numberOfSpans){
                 $validdays[] = [
                     'date' => $day->format('d-m-Y'),
@@ -55,6 +60,8 @@ class ValidDateConroller extends Controller
                     'delivery_times' => $validSpans->toArray()
                 ];
             }
+            
+            //increment day by one.
             $day = $day->addDays(1);
             // dd($day);
         }
